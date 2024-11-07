@@ -52,9 +52,9 @@ const HeroSection = () => {
         </div>
       </div>
       <div className="flex flex-col justify-center items-center font-roboto gap-2">
-      <div className="absolute inset-y-0 right-0 bg-gradient-to-l from-[#C259B2] to-transparent blur-[130px] w-1/2 mt-[60%]"></div>
+        <div className="absolute inset-y-0 right-0 bg-gradient-to-l from-[#C259B2] to-transparent blur-[130px] w-1/2 mt-[60%]"></div>
         <div>
-          <h1 className="bg-gradient-to-r h-16 from-pink-custom to-blue-custom bg-clip-text text-transparent text-[3rem] font-medium leading-[46.88px] text-center">
+          <h1 className="bg-gradient-to-r flex flex-wrap  h-16 from-pink-custom to-blue-custom bg-clip-text text-transparent text-[3rem] font-medium leading-[46.88px] text-center">
             A Smarter Way to Manage Your Work
           </h1>
         </div>
@@ -63,7 +63,7 @@ const HeroSection = () => {
             Make your work Enhance the product activity and do your work
           </p>
         </div>
-        <div className="flex gap-8">
+        <div className="flex flex-wrap gap-8">
           {[
             "Management",
             "Human Resources",

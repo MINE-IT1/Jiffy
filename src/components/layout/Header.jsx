@@ -20,27 +20,34 @@ const Header = () => {
   ];
 
   return (
-    <header className="flex justify-between items-center p-4 fixed w-full bg-opacity-90  z-10">
+    <header className="flex justify-between items-center px-3 py-2 md:px-6 md:py-3 z-10 w-full">
       {/* Logo */}
       <div className="logo flex-shrink-0">
         <NavLink to="/">
-          <img src={logo} alt="JIFFY" className="h-12 transition-transform duration-500 ease-in-out hover:scale-105" />
+          <img
+            src={logo}
+            alt="JIFFY"
+            className="h-8 sm:h-10 md:h-12 transition-transform duration-500 ease-in-out hover:scale-105"
+          />
         </NavLink>
       </div>
 
       {/* Mobile Menu Toggle */}
-      <button onClick={toggleMenu} className="text-3xl text-white z-20 md:hidden">
-        {isOpen ? <FaTimes className="h-8 w-8" /> : <FaBars className="h-8 w-8" />}
+      <button
+        onClick={toggleMenu}
+        className="text-2xl sm:text-3xl text-white z-20 md:hidden focus:outline-none"
+      >
+        {isOpen ? <FaTimes className="h-6 w-6 sm:h-8 sm:w-8" /> : <FaBars className="h-6 w-6 sm:h-8 sm:w-8" />}
       </button>
 
       {/* Desktop Navigation */}
-      <nav className="hidden lg:flex flex-grow justify-center">
-        <ul className="flex space-x-6 items-center list-none text-white">
+      <nav className="hidden md:flex flex-grow justify-end">
+        <ul className="flex flex-wrap space-x-2 sm:space-x-3 lg:space-x-4 items-center list-none text-white">
           {navitems.map((item, index) => (
             <li key={item.id} style={{ transitionDelay: `${index * 50}ms` }}>
               <NavLink
                 to={item.link}
-                className="font-['Roboto'] text-[18px] font-medium leading-[21.09px] transition-all duration-300 ease-in-out hover:bg-gradient-to-b from-pink-custom to-blue-custom hover:bg-clip-text hover:text-transparent px-3 py-1 rounded"
+                className="font-['Roboto'] text-sm sm:text-base font-medium transition-all duration-300 ease-in-out hover:bg-gradient-to-b from-pink-custom to-blue-custom hover:bg-clip-text hover:text-transparent px-2 sm:px-2.5 py-1.5 rounded"
               >
                 {item.name}
               </NavLink>
@@ -49,7 +56,7 @@ const Header = () => {
           <li style={{ transitionDelay: `${navitems.length * 50}ms` }}>
             <NavLink
               to="/book-demo"
-              className="border rounded-full py-2 px-4 hover:bg-gradient-to-b from-pink-custom to-blue-custom text-white transition-transform duration-300 ease-in-out hover:scale-110 hover:bg-opacity-90"
+              className="border rounded-full py-1.5 px-3 sm:py-2 sm:px-4 hover:bg-gradient-to-b from-pink-custom to-blue-custom text-white transition-transform duration-300 ease-in-out hover:scale-105 hover:bg-opacity-90"
             >
               Book Demo
             </NavLink>
@@ -59,25 +66,28 @@ const Header = () => {
 
       {/* Mobile Navigation */}
       <nav
-        className={`fixed top-0 left-0 right-0 bg-gray-800 bg-opacity-95 transform transition-transform duration-300 ease-in-out ${
-          isOpen ? "max-h-screen h-auto py-6 opacity-100" : "max-h-0 opacity-0"
-        } lg:hidden overflow-hidden`}
+        className={`absolute top-0 left-0 right-0 bg-black bg-opacity-100 transform transition-all duration-300 ease-in-out ${isOpen ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"} md:hidden`}
+        style={{
+          maxHeight: '80vh', // Adjust max-height for the mobile menu (to prevent taking up too much space)
+          minHeight: '60vh', // Adjust min-height for mobile menu (reasonable height when opened)
+          padding: '20px 0', // Add padding for better spacing
+        }}
       >
-        <ul className="flex flex-col items-center space-y-4 text-center text-white mt-12">
+        <ul className="flex flex-col items-center space-y-3 text-center text-white mt-4">
           {navitems.map((item) => (
             <li key={item.id} onClick={toggleMenu}>
               <NavLink
                 to={item.link}
-                className="font-['Roboto'] text-[18px] font-medium transition-all duration-300 ease-in-out hover:bg-gradient-to-b from-pink-custom to-blue-custom hover:bg-clip-text hover:text-transparent px-3 py-1 rounded"
+                className="font-['Roboto'] text-lg py-3 transition-all duration-300 ease-in-out hover:bg-gradient-to-b from-pink-custom to-blue-custom hover:bg-clip-text hover:text-transparent rounded"
               >
                 {item.name}
               </NavLink>
             </li>
           ))}
-          <li onClick={toggleMenu}>
+          <li onClick={toggleMenu} className="mt-3">
             <NavLink
               to="/book-demo"
-              className="border rounded-full py-2 px-4 hover:bg-gradient-to-b from-pink-custom to-blue-custom text-white transition-transform duration-300 ease-in-out hover:scale-110 hover:bg-opacity-90"
+              className="border rounded-full py-2.5 px-5 hover:bg-gradient-to-b from-pink-custom to-blue-custom text-white transition-transform duration-300 ease-in-out hover:scale-105 hover:bg-opacity-90"
             >
               Book Demo
             </NavLink>

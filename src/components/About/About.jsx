@@ -15,20 +15,18 @@ potential of their workforce.`;
 const About = () => {
   return (
     <>
-      <div className={`font-roboto mt-12 relative`}>
-        <center
-          className={`bg-gradient-to-r from-pink-custom to-blue-custom bg-clip-text text-transparent text-5xl font-semibold tracking-wider`}
-        >
-          About us
+      <div className="font-roboto mt-12 relative px-4 md:px-8">
+        <center className="bg-gradient-to-r from-pink-custom to-blue-custom bg-clip-text text-transparent text-3xl sm:text-4xl md:text-5xl font-semibold tracking-wider">
+          About Us
         </center>
-        <div className="grid grid-cols-2 mx-8 p-4 mt-8 relative">
-          <p className="tracking-wide leading-snug text-xl text-[#37474F]">
+        <div className="grid grid-cols-1 md:grid-cols-2 mx-0 md:mx-8 p-4 mt-8 relative">
+          <p className="tracking-wide leading-relaxed text-base md:text-lg text-[#37474F]">
             {aboutUs}
           </p>
-          <div className="relative">
+          <div className="relative mt-8 md:mt-0">
             <div className="absolute inset-y-0 right-0 w-1/2 h-full bg-gradient-to-l from-[#C259B2] to-transparent blur-[100px]"></div>
-            <div className="flex justify-end">
-              <img src={amico} alt="" />
+            <div className="flex justify-center md:justify-end">
+              <img src={amico} alt="Amico Illustration" className="w-3/4 md:w-[80%]" />
             </div>
           </div>
         </div>
